@@ -25,6 +25,10 @@ router.get(['/showDashboard', '/projects'], projectController.showDashboard);
 
 // GET "/project/edit/:id"
 router.get('/edit/:id', projectController.edit);
+
+// PUT "/project/edit/:id"
+router.put('/edit/:id', projectController.editPut);
+
 // POST "/project/add"
 router.post(
   '/add',
