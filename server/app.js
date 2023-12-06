@@ -97,10 +97,20 @@ configSession(app);
 // Agrendo middleware de passport
 app.use(passport.initialize());
 // Agregando el middleware de passport
-// para el manejo de sesiones
+// para el manejo de sesionres
 app.use(passport.session());
 // Crea un server de archivos estaticos
 app.use(express.static(path.join(__dirname, '..', 'public')));
+
+// Guardando en las variables locales
+// de express el usuario deserealizado
+// para que este sea accesible en las vistas
+// con handlebars
+app.use((req, res, next) => {
+  log.info('👤 Guardando el usuario en la variable local');
+  res.locals.user = req.user?.toJSON();
+  next();
+});
 
 // Registro de Rutas
 router.addRoutes(app);
