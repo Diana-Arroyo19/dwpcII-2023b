@@ -144,7 +144,7 @@ UserSchema.post('save', async function sendConfirmationMail() {
 
   // Configuring mail data
   mailSender.mail = {
-    from: 'jorge.rr@gamadero.tecnm.mx',
+    from: 'a@gmail.com',
     to: this.mail,
     subject: 'Account confirmation',
   };
